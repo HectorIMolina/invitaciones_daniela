@@ -1,0 +1,93 @@
+/* ========================================================
+   ESTILOS DEL SOBRE CLÁSICO REALISTA (imagen_5.jpg)
+   ======================================================== */
+
+.sobre-wrapper { position: fixed; inset: 0; z-index: 100; background-color: rgba(250, 247, 242, 0.7); backdrop-filter: blur(4px); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 1.5rem; transition: opacity 0.8s ease, visibility 0.8s; }
+.sobre-wrapper--desaparecer { opacity: 0; visibility: hidden; pointer-events: none; }
+
+.sobre-real {
+  position: relative;
+  width: min(92vw, 460px);
+  height: 310px;
+  perspective: 1200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+@keyframes invitarSobre {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  25% { transform: translateY(-5px) rotate(-1deg); }
+  50% { transform: translateY(-7px) rotate(0deg); }
+  75% { transform: translateY(-5px) rotate(1deg); }
+}
+.sobre-real--invitando { animation: invitarSobre 3.5s ease-in-out infinite; }
+.sobre-real--invitando:hover { transform: scale(1.02); transition: transform 0.3s; }
+
+/* 1. Fondo interior del sobre */
+.sobre-real__cuerpo { 
+  position: absolute; inset: 0; 
+  background-color: #E2DBD1; /* Color crema sólido oscuro */
+  border-radius: 8px; 
+  z-index: 1; 
+  box-shadow: 0 25px 50px -12px rgba(92, 61, 56, 0.25), inset 0 0 15px rgba(0,0,0,0.06); 
+}
+
+/* 2. Solapas fijas */
+.sobre-real__solapas-fijas { position: absolute; inset: 0; border-radius: 8px; z-index: 4; pointer-events: none; overflow: hidden; }
+
+.solapa-izq { position: absolute; inset: 0; background-color: #EBE5DC; clip-path: polygon(0 0, 50% 50%, 0 100%); filter: drop-shadow(2px 0 5px rgba(0,0,0,0.06)); }
+.solapa-der { position: absolute; inset: 0; background-color: #EBE5DC; clip-path: polygon(100% 0, 50% 50%, 100% 100%); filter: drop-shadow(-2px 0 5px rgba(0,0,0,0.06)); }
+.solapa-inf { position: absolute; inset: 0; background-color: #E6DFD4; clip-path: polygon(0 100%, 50% 50%, 100% 100%); filter: drop-shadow(0 -3px 6px rgba(0,0,0,0.08)); z-index: 2; }
+
+/* 3. Solapa Superior (Se abre hacia arriba) */
+.sobre-real__solapa-sup { 
+  position: absolute; inset: 0; 
+  background: linear-gradient(to bottom, #F4EEE5, #EBE4DA); 
+  clip-path: polygon(0 0, 100% 0, 50% 55%); 
+  transform-origin: top; 
+  transition: transform 0.9s cubic-bezier(0.4, 0, 0.2, 1), z-index 0s 0.4s; 
+  z-index: 5; 
+  border-radius: 8px 8px 0 0; 
+  filter: drop-shadow(0 4px 8px rgba(92, 61, 56, 0.15)); 
+  pointer-events: none;
+}
+.sobre-real--abierto .sobre-real__solapa-sup { transform: rotateX(180deg); z-index: 1; }
+
+/* Flores en las esquinas del sobre */
+.floral-esquina { position: absolute; width: 85px; height: 85px; opacity: 0.95; }
+.floral-tl { top: -2px; left: -2px; transform: rotate(0deg); }
+.floral-tr { top: -2px; right: -2px; transform: scaleX(-1); }
+.floral-bl { bottom: -2px; left: -2px; transform: scaleY(-1); z-index: 3; }
+.floral-br { bottom: -2px; right: -2px; transform: scale(-1); z-index: 3; }
+
+/* 4. Carta Interna */
+.carta-interna { position: absolute; width: 88%; height: 85%; background-color: #FFFFFF; border: 1px solid var(--rosa-pastel); border-radius: 8px; padding: 1.2rem; z-index: 2; box-shadow: 0 4px 15px rgba(0,0,0,0.05); display: flex; align-items: center; justify-content: center; text-align: center; transition: transform 0.8s 0.5s cubic-bezier(0.34, 1.56, 0.64, 1); }
+.sobre-real--abierto .carta-interna { transform: translateY(-75px); z-index: 6; }
+.carta-interna__contenido { display: flex; flex-direction: column; gap: 0.3rem; }
+.carta-interna__tag { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; color: var(--rojo-amapola); }
+.carta-interna__nombres { font-family: 'Bodoni Moda', serif; font-size: 1.6rem; color: var(--texto-oscuro); margin: 0; line-height: 1.2;}
+.carta-interna__fecha { font-size: 0.85rem; color: var(--texto-suave); margin: 0; }
+.carta-interna__lugar { font-size: 0.75rem; color: var(--verde-menta); font-weight: 500; }
+
+/* 5. Sello de Lacre */
+.sello-lacre { position: absolute; top: 52%; left: 50%; transform: translate(-50%, -50%); z-index: 7; background: none; border: none; padding: 0; transition: transform 0.3s ease, opacity 0.4s 0.2s; pointer-events: none; }
+.sobre-real--abierto .sello-lacre { opacity: 0; pointer-events: none; }
+
+@keyframes latidoLacre {
+  0%, 100% { box-shadow: 0 8px 20px rgba(217, 106, 112, 0.45), inset 0 2px 4px rgba(255,255,255,0.4); transform: scale(1); }
+  50% { box-shadow: 0 15px 35px rgba(217, 106, 112, 0.7), inset 0 2px 4px rgba(255,255,255,0.6); transform: scale(1.08); }
+}
+.sello-lacre--latido .sello-lacre__borde { animation: latidoLacre 2s infinite; }
+
+.sello-lacre__borde { display: flex; align-items: center; justify-content: center; width: 72px; height: 72px; background: radial-gradient(circle at 35% 35%, #E68A8F, var(--rojo-amapola) 70%, #9E3B41); border-radius: 50%; box-shadow: 0 8px 20px rgba(217, 106, 112, 0.45), inset 0 2px 4px rgba(255,255,255,0.4), inset 0 -3px 6px rgba(0,0,0,0.3); transition: all 0.3s ease; }
+.sello-lacre__centro { width: 54px; height: 54px; border: 1.5px dashed rgba(250, 247, 242, 0.75); border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; color: var(--fondo-crema); }
+.sello-lacre__icono { width: 15px; height: 15px; }
+.sello-lacre__monograma { font-family: 'Bodoni Moda', serif; font-size: 0.8rem; font-weight: 600; letter-spacing: 1px; }
+
+.instruccion-abrir { margin-top: 2rem; font-size: 0.95rem; color: var(--texto-suave); font-weight: 500; animation: pulso 2s infinite; z-index: 2; }
+@keyframes pulso { 0%, 100% { opacity: 0.5; } 50% { opacity: 1; } }
+
+/* ======================================================== */

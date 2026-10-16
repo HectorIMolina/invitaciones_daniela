@@ -1,0 +1,48 @@
+export const BODA = {
+  novia: "Daniela",
+  novio: "Jeshua",
+  inicio: "2027-04-23T16:00:00-06:00",
+  zona: "America/Mexico_City",
+  ciudad: "Aguascalientes, Ags.",
+  whatsappTel: "525512345678",
+  driveURL: "https://drive.google.com/drive/folders/TU_ENLACE_DE_CARPETA_AQUI?usp=sharing",
+  frase: {
+    texto: "Amar no es mirarse el uno al otro, sino mirar juntos en la misma dirección.",
+    autor: "Antoine de Saint-Exupéry",
+  },
+  itinerario: [
+    { min: 0, titulo: "Ceremonia Religiosa", lugar: "Aguascalientes" },
+    { min: 90, titulo: "Cóctel de Bienvenida", lugar: "Aguascalientes" },
+    { min: 165, titulo: "Banquete y Brindis", lugar: "Aguascalientes" },
+    { min: 285, titulo: "Primer Baile", lugar: "Aguascalientes" },
+    { min: 315, titulo: "Fiesta y Celebración", lugar: "Aguascalientes" },
+  ],
+  lugares: [
+    { nombre: "Ceremonia", sitio: "Lugar por confirmar", dir: "Aguascalientes, Ags.", mapa: "#", min: 0 },
+    { nombre: "Recepción", sitio: "Lugar por confirmar", dir: "Aguascalientes, Ags.", mapa: "#", min: 90 },
+  ],
+  vestimenta: {
+    etiqueta: "Formal Elegante",
+    mujeres: "Vestido largo en tonos pastel o florales",
+    hombres: "Traje formal o Guayabera elegante (saco opcional)",
+    paleta: ["#F2BACC", "#FBE47E", "#F2A04E", "#B4C5D2", "#94B488", "#D96A70"],
+    nota: "Favor de reservar el color blanco exclusivamente para la novia.",
+  },
+  regalos: {
+    mesaEvento: "50892341",
+    tienda: "Liverpool / Sears",
+    clabe: "012180000000000000",
+    banco: "BBVA México",
+    titular: "Daniela y Jeshua",
+  },
+  soloAdultos: true,
+  invitadoEjemplo: { nombre: "José y Laura", pases: 2 },
+  canciones: [
+    { id: 1, titulo: "Si tú eres mi hombre y yo tu mujer", artista: "Celine Dion (Edición Antonio Pignatiello)", youtubeId: "k2XGXinaZ3Y", duracion: "5:21", nota: "Nuestra canción especial de boda" },
+    { id: 2, titulo: "Hasta Mi Final", artista: "Il Divo", youtubeId: "c-3vT02j62I", duracion: "3:36" },
+    { id: 3, titulo: "Por Eso Te Amo", artista: "Río Roma", youtubeId: "M2S8_S7W5oI", duracion: "3:30" },
+    { id: 4, titulo: "Solo Para Ti", artista: "Camila", youtubeId: "3eI2uT19fA4", duracion: "3:08" },
+    { id: 5, titulo: "Motivos", artista: "José Luis Perales", youtubeId: "0bM9y64j3uI", duracion: "3:25" },
+    { id: 6, titulo: "Thinking Out Loud", artista: "Ed Sheeran", youtubeId: "lp-EO5I60KA", duracion: "4:41" },
+  ],
+};
